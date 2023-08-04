@@ -14,6 +14,20 @@ interface NewsAPIService {
         countries: String,
         @Query("topic")
         topic:String,
+        @Query("page")
+        page: Int,
+        @Header("x-api-key")
+        apiKey:String = BuildConfig.API_KEY
+    ): Response<APIResponse>
+
+    @GET("v2/search")
+    suspend fun getSearchedTopHeadlines(
+        @Query("countries")
+        country:String,
+        @Query("q")
+        searchQuery:String,
+        @Query("page")
+        page:Int,
         @Header("x-api-key")
         apiKey:String = BuildConfig.API_KEY
     ): Response<APIResponse>

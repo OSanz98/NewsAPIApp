@@ -8,7 +8,15 @@ import sanzlimited.com.newsapiapp.data.repository.dataSource.NewsRemoteDataSourc
 class NewsRemoteDataSourceImpl(
     private val newsAPIService: NewsAPIService
 ): NewsRemoteDataSource {
-    override suspend fun getTopHeadlines(countries : String, topic: String): Response<APIResponse> {
-        return newsAPIService.getTopHeadlines(countries, topic)
+    override suspend fun getTopHeadlines(countries : String, topic: String, page: Int): Response<APIResponse> {
+        return newsAPIService.getTopHeadlines(countries, topic, page)
+    }
+
+    override suspend fun getSearchedNews(
+        countries: String,
+        searchQuery: String,
+        page: Int
+    ): Response<APIResponse> {
+        return newsAPIService.getSearchedTopHeadlines(countries, searchQuery, page)
     }
 }

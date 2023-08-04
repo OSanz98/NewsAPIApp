@@ -7,9 +7,8 @@ import sanzlimited.com.newsapiapp.data.util.Resource
 
 interface NewsRepository {
 
-    suspend fun getNewsHeadlines(countries : String, topic: String): Resource<APIResponse>
-    suspend fun getSearchedNews(searchQuery: String) : Resource<APIResponse>
-
+    suspend fun getNewsHeadlines(countries : String, topic: String, page: Int): Resource<APIResponse>
+    suspend fun getSearchedNews(countries: String, searchQuery: String, page: Int) : Resource<APIResponse>
     suspend fun saveNews(article: Article)
     suspend fun deleteNews(article: Article)
     fun getSavedNews(): Flow<List<Article>>

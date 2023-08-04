@@ -38,7 +38,7 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
         holder.bind(article)
     }
 
-    inner class NewsViewHolder(val binding: NewsListItemBinding): RecyclerView.ViewHolder(binding.root){
+    inner class NewsViewHolder(private val binding: NewsListItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(article: Article) {
             binding.newsTitle.text = article.title
             binding.newsDescription.text = article.summary

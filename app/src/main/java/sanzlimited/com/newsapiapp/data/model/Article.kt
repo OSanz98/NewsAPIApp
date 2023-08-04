@@ -1,5 +1,7 @@
 package sanzlimited.com.newsapiapp.data.model
 
+import java.io.Serializable
+
 data class Article(
     val _id: String,
     val _score: Any,
@@ -20,4 +22,4 @@ data class Article(
     val title: String,
     val topic: String,
     val twitter_account: Any
-)
+):Serializable
