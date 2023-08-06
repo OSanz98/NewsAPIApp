@@ -55,4 +55,5 @@ class UseCaseModule {
     ): DeleteSavedNewsUseCase {
         return DeleteSavedNewsUseCase(newsRepository)
     }
+
 }
