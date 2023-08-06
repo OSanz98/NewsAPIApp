@@ -21,7 +21,7 @@ import sanzlimited.com.newsapiapp.presentation.viewmodel.NewsViewModel
 
 
 class NewsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
     private lateinit var viewModel: NewsViewModel
     private lateinit var fragmentNewsBinding: FragmentNewsBinding
     private lateinit var newsAdapter: NewsAdapter
@@ -69,10 +69,10 @@ class NewsFragment : Fragment() {
                     hideProgressBar()
                     response.data?.let {
                         newsAdapter.differ.submitList(it.articles.toList())
-                        if(it.total_pages%20 == 0) {
-                            pages = it.total_pages / 20
+                        pages = if(it.total_pages%20 == 0) {
+                            it.total_pages / 20
                         }else{
-                            pages = it.total_pages / 20 + 1
+                            it.total_pages / 20 + 1
                         }
                         isLastPage = page == pages
                     }
